@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instituto Piratininga — Manifesto</title>
+  <meta name="description" content="Construir o mundo melhor. O manifesto do Instituto Piratininga: a recusa do fatalismo, a crença no potencial humano e o método de uma tecnologia social que fica." />
+  <meta name="theme-color" content="#111111" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Instituto Piratininga — Manifesto" />
+  <meta property="og:description" content="Recusamos o fatalismo. O mundo melhora. O esforço organizado transforma. Não é utopia — é método." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Progressive enhancement flag: only hide reveal elements if JS is present.
+       main.js removes this class if animation can't run, so content never stays hidden. -->
+  <script>
+    document.documentElement.classList.add("anims");
+    try {
+      if (localStorage.getItem("piratininga-mode") === "dark") {
+        document.documentElement.setAttribute("data-mode", "dark");
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ░░ PRELOADER ░░ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <svg class="preloader__fish" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
+        <path class="pf-draw" d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="#F5F5F5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <line class="pf-draw" x1="-170" y1="-50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="9" stroke-linecap="round"/>
+        <line class="pf-draw" x1="-170" y1="50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="9" stroke-linecap="round"/>
+        <circle class="pf-eye" cx="118" cy="-14" r="13" fill="#F5F5F5"/>
+        <circle cx="118" cy="-14" r="5.5" fill="#111111"/>
+      </svg>
+      <div class="preloader__word">Instituto Piratininga</div>
+      <div class="preloader__bar"><span id="preloaderBar"></span></div>
+    </div>
+  </div>
+
+  <!-- ░░ CUSTOM CURSOR ░░ -->
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  <!-- ░░ NAV ░░ -->
+  <header class="nav nav--light" id="nav">
+    <a class="nav__brand" href="#topo" aria-label="Instituto Piratininga — início">
+      <svg class="nav__fish" viewBox="-180 -90 360 180" fill="none" aria-hidden="true">
+        <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="currentColor" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="-170" y1="-50" x2="-137" y2="0" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+        <line x1="-170" y1="50" x2="-137" y2="0" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+        <circle cx="118" cy="-14" r="14" fill="currentColor"/>
+        <circle cx="118" cy="-14" r="6" class="nav__pupil"/>
+      </svg>
+      <span class="nav__word">Piratininga</span>
+    </a>
+
+    <div class="nav__right">
+      <nav class="nav__links" aria-label="Navegação principal">
+        <a href="#nome"><span>O manifesto</span></a>
+        <a href="#recusa"><span>A recusa</span></a>
+        <a href="#sonho"><span>O sonho</span></a>
+        <a href="#convite" class="nav__cta magnetic">Vem construir</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Ativar modo escuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.4M12 19.1v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ░░ FULLSCREEN MOBILE MENU ░░ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links menu__links--long" aria-label="Menu">
+      <a href="#nome"><span class="menu__idx">I</span> O nome</a>
+      <a href="#tempo"><span class="menu__idx">II</span> O tempo</a>
+      <a href="#recusa"><span class="menu__idx">III</span> A recusa</a>
+      <a href="#crenca"><span class="menu__idx">IV</span> A crença</a>
+      <a href="#ferramenta"><span class="menu__idx">V</span> A ferramenta</a>
+      <a href="#metodo"><span class="menu__idx">VI</span> O método</a>
+      <a href="#sonho"><span class="menu__idx">VII</span> O sonho</a>
+      <a href="#convite"><span class="menu__idx">—</span> Convite</a>
+    </nav>
+    <div class="menu__foot">Cotia · São Paulo · Brasil</div>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ░░ HERO ░░ -->
+    <section class="hero" id="topo" data-theme="light">
+      <div class="hero__bg" aria-hidden="true">
+        <svg class="hero__watermark" data-parallax data-parallax-speed="-0.18" viewBox="-220 -130 440 260" fill="none">
+          <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="var(--fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="-170" y1="-50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="2"/>
+          <line x1="-170" y1="50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="2"/>
+          <circle cx="118" cy="-14" r="14" fill="none" stroke="var(--fg)" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <div class="hero__inner">
+        <svg class="hero__fish" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
+          <path class="draw" d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="var(--fg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <line class="draw" x1="-170" y1="-50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>
+          <line class="draw" x1="-170" y1="50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>
+          <circle class="fish-eye" cx="118" cy="-14" r="15" fill="var(--fg)"/>
+          <circle cx="118" cy="-14" r="6.5" fill="var(--bg)"/>
+        </svg>
+        <p class="eyebrow" data-reveal>Instituto Piratininga — Manifesto</p>
+        <h1 class="hero__title">
+          <span class="line" data-split><span>Construir</span></span>
+          <span class="line" data-split><span>o mundo melhor.</span></span>
+        </h1>
+        <p class="hero__lead" data-reveal>A arquitetura de um futuro.</p>
+        <div class="hero__meta" data-reveal>
+          <span>Cotia · São Paulo · Brasil</span>
+          <span class="dot">·</span>
+          <span>Manifesto</span>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#nome" data-reveal aria-label="Rolar para o manifesto">
+        <span>Role para ler</span>
+        <span class="hero__scroll-line"><i></i></span>
+      </a>
+    </section>
+
+    <!-- ░░ MARQUEE ░░ -->
+    <div class="marquee" data-theme="light" aria-hidden="true">
+      <div class="marquee__track" id="marquee">
+        <span>Território</span><span class="sep">✺</span><span>Método</span><span class="sep">✺</span><span>Potencial máximo</span><span class="sep">✺</span><span>Recusa do fatalismo</span><span class="sep">✺</span><span>Tecnologia social</span><span class="sep">✺</span><span>Convicção</span><span class="sep">✺</span><span>Bússola</span><span class="sep">✺</span><span>Não é utopia</span><span class="sep">✺</span>
+        <span>Território</span><span class="sep">✺</span><span>Método</span><span class="sep">✺</span><span>Potencial máximo</span><span class="sep">✺</span><span>Recusa do fatalismo</span><span class="sep">✺</span><span>Tecnologia social</span><span class="sep">✺</span><span>Convicção</span><span class="sep">✺</span><span>Bússola</span><span class="sep">✺</span><span>Não é utopia</span><span class="sep">✺</span>
+      </div>
+    </div>
+
+    <!-- ░░ I — O NOME (LIGHT) ░░ -->
+    <section class="chapter" id="nome" data-theme="light">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>I</span>
+          <h2 class="chapter__title" data-reveal>O nome</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>Piratininga: peixe seco, em tupi. O planalto onde São Paulo nasceu sabia transformar a abundância passageira das águas em sustento permanente. Esse gesto nos define.</p>
+          <p class="chapter__text" data-reveal>Piratininga é uma declaração de intenção. O Instituto existe para desenvolver tecnologias sociais que fixem riqueza e talento no território: para que o conhecimento gerado nas comunidades permaneça nelas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ II — O TEMPO (DARK) ░░ -->
+    <section class="chapter" id="tempo" data-theme="dark">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>II</span>
+          <h2 class="chapter__title" data-reveal>O tempo</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>Tivemos sorte de nascer agora. Vivemos em uma era em que o mundo pode ser salvo, e dizemos isso com alegria, não com arrogância.</p>
+          <p class="chapter__text" data-reveal>No último século, a pobreza extrema, a fome e a mortalidade infantil foram drasticamente reduzidas. Vivemos também a maior revolução tecnológica da história. O encontro entre o que a humanidade aprendeu e o que a tecnologia agora permite abre uma janela única de transformação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ III — A RECUSA (LIGHT) ░░ -->
+    <section class="chapter" id="recusa" data-theme="light">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>III</span>
+          <h2 class="chapter__title" data-reveal>A recusa</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>Recusamos o fatalismo. A desigualdade não é destino. A miséria não é natureza. São escolhas, e escolhas podem ser refeitas.</p>
+          <p class="chapter__text" data-reveal>O pessimismo é uma postura intelectual e moral que rejeitamos: não por ingenuidade, mas por evidência. Os problemas que enfrentamos são reais e urgentes, mas nenhum deles é irresolúvel. O Piratininga existe na convicção de que o esforço organizado, bem direcionado e sustentado no tempo, constrói alternativas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ PAUSA — GRANDE AFIRMAÇÃO (DARK) ░░ -->
+    <section class="manifesto" id="pausa" data-theme="dark">
+      <svg class="manifesto__spine" data-parallax data-parallax-speed="0.12" viewBox="-90 -45 180 90" fill="none" aria-hidden="true">
+        <path d="M 50,-15 C 70,-10 70,10 50,15" stroke="#F5F5F5" stroke-width="1.4"/>
+        <line x1="50" y1="0" x2="-46" y2="0" stroke="#F5F5F5" stroke-width="1.4"/>
+        <line x1="34" y1="0" x2="34" y2="-9" stroke="#F5F5F5" stroke-width="1"/><line x1="34" y1="0" x2="34" y2="9" stroke="#F5F5F5" stroke-width="1"/>
+        <line x1="20" y1="0" x2="20" y2="-21" stroke="#F5F5F5" stroke-width="1"/><line x1="20" y1="0" x2="20" y2="21" stroke="#F5F5F5" stroke-width="1"/>
+        <line x1="4" y1="0" x2="4" y2="-28" stroke="#F5F5F5" stroke-width="1"/><line x1="4" y1="0" x2="4" y2="28" stroke="#F5F5F5" stroke-width="1"/>
+        <line x1="-12" y1="0" x2="-12" y2="-28" stroke="#F5F5F5" stroke-width="1"/><line x1="-12" y1="0" x2="-12" y2="28" stroke="#F5F5F5" stroke-width="1"/>
+        <line x1="-27" y1="0" x2="-27" y2="-19" stroke="#F5F5F5" stroke-width="1"/><line x1="-27" y1="0" x2="-27" y2="19" stroke="#F5F5F5" stroke-width="1"/>
+        <line x1="-46" y1="0" x2="-66" y2="-22" stroke="#F5F5F5" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="-46" y1="0" x2="-66" y2="22" stroke="#F5F5F5" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="62" cy="-5" r="2.5" fill="#F5F5F5"/>
+      </svg>
+
+      <div class="manifesto__inner">
+        <p class="label" data-reveal>Manifesto</p>
+        <h2 class="manifesto__title">
+          <span class="line" data-split><span>Escolhas</span></span>
+          <span class="line" data-split><span>podem ser refeitas.</span></span>
+        </h2>
+        <p class="manifesto__sub" data-reveal>A desigualdade não é destino. A miséria não é natureza.</p>
+        <p class="manifesto__accent" data-reveal>Não é ingenuidade. <em>É evidência.</em></p>
+      </div>
+    </section>
+
+    <!-- ░░ IV — A CRENÇA (LIGHT) ░░ -->
+    <section class="chapter" id="crenca" data-theme="light">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>IV</span>
+          <h2 class="chapter__title" data-reveal>A crença</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>Só existe a sociedade. Mercado e Estado são ferramentas que ela criou para fins específicos. Quando falham, não é o fim: é o sinal de que precisamos de ferramentas melhores. Acreditamos no indivíduo como unidade irredutível dessa sociedade, cada pessoa com seu potencial máximo desenvolvido.</p>
+          <p class="chapter__text" data-reveal>Partimos do ser humano concreto, não de sistemas abstratos. O objetivo de qualquer tecnologia social é ampliar a capacidade individual de criar, pensar e contribuir. Uma sociedade melhor é feita de indivíduos mais plenos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ V — A FERRAMENTA (DARK) ░░ -->
+    <section class="chapter" id="ferramenta" data-theme="dark">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>V</span>
+          <h2 class="chapter__title" data-reveal>A ferramenta</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>A inteligência artificial não é apenas mais uma tecnologia. É a primeira que nos permite repensar os sistemas, não apenas otimizá-los.</p>
+          <p class="chapter__text" data-reveal>A sociedade precisa abraçar esse momento: sem medo, com o cuidado de quem sabe que a ferramenta serve ao artesão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ VI — O MÉTODO (LIGHT) ░░ -->
+    <section class="chapter" id="metodo" data-theme="light">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>VI</span>
+          <h2 class="chapter__title" data-reveal>O método</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>Tecnologia social é o que transcende o projeto. A diferença entre apagar um incêndio e construir um sistema de prevenção.</p>
+          <p class="chapter__text" data-reveal>Soluções que persistem além de quem as criou, enraizadas no território, autossustentáveis, capazes de nutrir o futuro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ VII — O SONHO (LIGHT) ░░ -->
+    <section class="chapter" id="sonho" data-theme="light">
+      <div class="chapter__inner">
+        <div class="chapter__head">
+          <span class="chapter__num" data-reveal>VII</span>
+          <h2 class="chapter__title" data-reveal>O sonho</h2>
+        </div>
+        <div class="chapter__body">
+          <p class="chapter__text chapter__text--lead" data-reveal>Queremos um mundo onde todo ser humano possa desenvolver seu potencial ao máximo. Um mundo onde todos sejam cientistas, pensadores, criadores. Recebemos mais do que os que vieram antes. Deixaremos mais do que recebemos, para as próximas gerações, por enquanto aqui neste planetinha. Um dia, além dele.</p>
+          <p class="chapter__text chapter__text--accent" data-reveal>Não é utopia: é bússola. Cada decisão deve ser avaliada pela mesma pergunta: isso aproxima ou afasta o mundo em que cada pessoa pode ser plenamente o que é?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ CONVITE / CTA (DARK) ░░ -->
+    <section class="invite" id="convite" data-theme="dark">
+      <svg class="invite__watermark" data-parallax data-parallax-speed="-0.1" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
+        <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="#F5F5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="-170" y1="-50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="1.5"/>
+        <line x1="-170" y1="50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="1.5"/>
+        <circle cx="118" cy="-14" r="14" fill="none" stroke="#F5F5F5" stroke-width="1.5"/>
+      </svg>
+
+      <div class="invite__inner">
+        <p class="label" data-reveal>O convite</p>
+        <h2 class="invite__title">
+          <span class="line" data-split><span>Vem construir</span></span>
+          <span class="line" data-split><span>esse mundo</span></span>
+          <span class="line" data-split><span class="red">com a gente.</span></span>
+        </h2>
+        <a class="btn-invite magnetic" href="mailto:contato@institutopiratininga.org" data-cursor="enviar" data-reveal>
+          <span>Fale com o Instituto</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="invite__tag" data-reveal>Não é utopia. É bússola.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer" data-theme="dark">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <svg class="footer__fish" viewBox="-180 -90 360 180" fill="none" aria-hidden="true">
+          <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="#F5F5F5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="-170" y1="-50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="11" stroke-linecap="round"/>
+          <line x1="-170" y1="50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="11" stroke-linecap="round"/>
+          <circle cx="118" cy="-14" r="14" fill="#F5F5F5"/>
+          <circle cx="118" cy="-14" r="6" fill="#111111"/>
+        </svg>
+        <div class="footer__lockup">
+          <span class="footer__label">Instituto</span>
+          <span class="footer__word">Piratininga</span>
+        </div>
+        <p class="footer__mission">Recusamos o fatalismo. Tecnologia social para construir, com método, o mundo que escolhemos.</p>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="label">Lugar</p>
+          <p>Cotia</p>
+          <p>São Paulo</p>
+          <p>Brasil</p>
+        </div>
+        <div class="footer__col">
+          <p class="label">Ler</p>
+          <p><a href="#nome">O nome</a></p>
+          <p><a href="#recusa">A recusa</a></p>
+          <p><a href="#sonho">O sonho</a></p>
+        </div>
+        <div class="footer__col">
+          <p class="label">Contato</p>
+          <p><a href="mailto:contato@institutopiratininga.org">contato@institutopiratininga.org</a></p>
+          <p><a href="#convite">Vem construir →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Instituto Piratininga</span>
+      <span>Manifesto</span>
+      <span>Cotia · São Paulo · Brasil</span>
+    </div>
+  </footer>
+
+  <!-- Libraries (deferred, order-preserved). Site degrades gracefully if these fail to load. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script defer src="main.js"></script>
+</body>
+</html>
