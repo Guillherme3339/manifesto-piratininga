@@ -235,6 +235,25 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ============================================================
+   READING PROGRESS
+   ============================================================ */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  z-index: 1001;
+  pointer-events: none;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ============================================================
    NAV
    ============================================================ */
 .nav {
@@ -479,14 +498,14 @@ section, .marquee, .footer {
 .hero__scroll-line {
   position: relative;
   width: 1px; height: 46px;
-  background: var(--veil);
+  background: var(--line);
   overflow: hidden;
 }
 .hero__scroll-line > i {
   position: absolute;
   top: -50%; left: 0;
   width: 100%; height: 50%;
-  background: var(--black);
+  background: var(--fg);
   animation: scrollPulse 1.9s var(--ease) infinite;
 }
 @keyframes scrollPulse {
@@ -530,10 +549,14 @@ section, .marquee, .footer {
    ============================================================ */
 .chapter {
   padding: var(--section-y) var(--gutter);
+}
+.chapter + .chapter { border-top: 1px solid var(--line); }
+.chapter__inner {
   max-width: var(--maxw);
   margin-inline: auto;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
 }
-.chapter__inner { display: grid; gap: clamp(1.5rem, 4vw, 3rem); }
 .chapter__head { display: flex; align-items: baseline; gap: 1rem; }
 .chapter__num {
   font-size: clamp(2.3rem, 6vw, 4rem);
@@ -738,6 +761,23 @@ html.anims .preloader__fish .pf-eye { opacity: 0; }
   .hero__meta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .footer__cols { grid-template-columns: 1fr 1fr; }
   .footer__bottom { flex-direction: column; }
+}
+
+/* ============================================================
+   PRINT — manifesto legível em papel, sempre claro
+   ============================================================ */
+@media print {
+  .nav, .menu, .cursor, .preloader, .progress,
+  .hero__scroll, .marquee, .theme-toggle { display: none !important; }
+  [data-theme], html[data-mode="dark"] [data-theme] {
+    --bg: #fff; --fg: #000;
+    --muted: #333; --line: #ccc; --faint: #666;
+  }
+  body { background: #fff; color: #000; }
+  html.anims [data-reveal],
+  html.anims [data-reveal-item] { opacity: 1 !important; transform: none !important; }
+  html.anims [data-split] > span { transform: none !important; }
+  .chapter { break-inside: avoid; }
 }
 
 /* ============================================================

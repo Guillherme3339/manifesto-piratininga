@@ -81,12 +81,18 @@
     });
   }
 
-  /* Nav scrolled state */
+  /* Nav scrolled state + barra de progresso de leitura */
+  var progressBar = document.getElementById("progressBar");
   function updateScrolled() {
-    if (!nav) return;
-    nav.classList.toggle("is-scrolled", window.scrollY > 12);
+    if (nav) nav.classList.toggle("is-scrolled", window.scrollY > 12);
+    if (progressBar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      progressBar.style.transform = "scaleX(" + p + ")";
+    }
   }
   window.addEventListener("scroll", updateScrolled, { passive: true });
+  window.addEventListener("resize", updateScrolled, { passive: true });
   updateScrolled();
 
   /* Nav theme swap via IntersectionObserver (sem depender de GSAP) */
@@ -114,11 +120,13 @@
     build();
   })();
 
-  /* Alternância de modo escuro global (sobrepõe o tema por seção) */
+  /* Alternância de modo escuro global (sobrepõe o tema por seção).
+     Sem escolha salva, segue o esquema de cores do sistema. */
   (function setupThemeToggle() {
     var STORAGE_KEY = "piratininga-mode";
     var btn = document.getElementById("themeToggle");
     if (!btn) return;
+    var themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
     function apply(isDark) {
       if (isDark) html.setAttribute("data-mode", "dark");
@@ -126,12 +134,14 @@
       btn.classList.toggle("is-dark", isDark);
       btn.setAttribute("aria-pressed", isDark ? "true" : "false");
       btn.setAttribute("aria-label", isDark ? "Ativar modo claro" : "Ativar modo escuro");
+      if (themeColorMeta) themeColorMeta.setAttribute("content", isDark ? "#111111" : "#F5F5F5");
       applyNavTheme();
     }
 
     var saved = null;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    apply(saved === "dark");
+    var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    apply(saved ? saved === "dark" : systemDark);
 
     btn.addEventListener("click", function () {
       var next = html.getAttribute("data-mode") !== "dark";
@@ -181,6 +191,7 @@
       wheelMultiplier: 1
     });
     lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", updateScrolled);
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
   }
@@ -194,9 +205,9 @@
   var scrollSplitLines = gsap.utils.toArray("[data-split]").filter(function (el) { return !el.closest("#topo"); });
 
   /* Initial states (GSAP owns them) */
-  gsap.set(scrollReveals, { opacity: 0, y: 30 });
-  gsap.set(heroReveals, { opacity: 0, y: 24 });
-  gsap.set(revealItems, { opacity: 0, y: 30 });
+  if (scrollReveals.length) gsap.set(scrollReveals, { opacity: 0, y: 30 });
+  if (heroReveals.length) gsap.set(heroReveals, { opacity: 0, y: 24 });
+  if (revealItems.length) gsap.set(revealItems, { opacity: 0, y: 30 });
   gsap.set(gsap.utils.toArray("[data-split] > span"), { yPercent: 110 });
   gsap.set(".hero__fish .fish-eye", { opacity: 0 });
 
@@ -242,37 +253,6 @@
   parallax(document.querySelector(".hero__watermark"), 0, 0);
   parallax(document.querySelector(".manifesto__spine"), 0, -50);
   parallax(document.querySelector(".invite__watermark"), -50, -50);
-
-  /* Voice — pinned horizontal (matchMedia: pin no desktop, swipe no mobile) */
-  var voiceTrack = document.getElementById("voiceTrack");
-  var voicePin = document.getElementById("voicePin");
-  if (voiceTrack && voicePin) {
-    var mm = gsap.matchMedia();
-    mm.add("(min-width: 760px)", function () {
-      var getDist = function () {
-        return Math.max(0, voiceTrack.scrollWidth - document.documentElement.clientWidth);
-      };
-      var tween = gsap.to(voiceTrack, {
-        x: function () { return -getDist(); },
-        ease: "none",
-        scrollTrigger: {
-          trigger: voicePin,
-          start: "top top",
-          end: function () { return "+=" + getDist(); },
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          anticipatePin: 1
-        }
-      });
-      return function () { tween.scrollTrigger && tween.scrollTrigger.kill(); tween.kill(); gsap.set(voiceTrack, { x: 0 }); };
-    });
-    mm.add("(max-width: 759px)", function () {
-      voicePin.style.overflowX = "auto";
-      voicePin.style.webkitOverflowScrolling = "touch";
-      return function () { voicePin.style.overflowX = ""; };
-    });
-  }
 
   /* Marquee — sutil reação à direção do scroll */
   (function marqueeReact() {
