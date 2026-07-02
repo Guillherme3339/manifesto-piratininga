@@ -647,23 +647,6 @@ section, .marquee, .footer {
   letter-spacing: -0.035em;
   line-height: 0.96;
 }
-.btn-invite {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 1.05rem 2.1rem;
-  background: var(--white);
-  color: var(--black);
-  border-radius: 100px;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-  transition: background 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease);
-  will-change: transform;
-}
-.btn-invite svg { width: 22px; transition: transform 0.4s var(--ease); }
-.btn-invite:hover { background: var(--red); color: #fff; }
-.btn-invite:hover svg { transform: translateX(5px); }
 .invite__tag {
   font-size: var(--fs-label);
   letter-spacing: 0.32em;
@@ -697,8 +680,9 @@ section, .marquee, .footer {
 .footer__mission { color: var(--muted); max-width: 38ch; font-size: 0.95rem; line-height: 1.55; }
 .footer__cols {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  max-width: 420px;
 }
 .footer__col { display: grid; gap: 0.55rem; align-content: start; font-size: 0.92rem; }
 .footer__col .label { margin-bottom: 0.4rem; }
