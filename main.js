@@ -134,7 +134,7 @@
       btn.classList.toggle("is-dark", isDark);
       btn.setAttribute("aria-pressed", isDark ? "true" : "false");
       btn.setAttribute("aria-label", isDark ? "Ativar modo claro" : "Ativar modo escuro");
-      if (themeColorMeta) themeColorMeta.setAttribute("content", isDark ? "#111111" : "#F5F5F5");
+      if (themeColorMeta) themeColorMeta.setAttribute("content", isDark ? "#1F1E1B" : "#FAF7F2");
       applyNavTheme();
     }
 

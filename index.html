@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Instituto Piratininga — Manifesto</title>
   <meta name="description" content="Construir o mundo melhor. O manifesto do Instituto Piratininga: a recusa do fatalismo, a crença no potencial humano e o método de uma tecnologia social que fica." />
-  <meta name="theme-color" content="#F5F5F5" />
+  <meta name="theme-color" content="#FAF7F2" />
   <link rel="canonical" href="https://guillherme3339.github.io/manifesto-piratininga/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -49,7 +49,7 @@
       if (dark) {
         document.documentElement.setAttribute("data-mode", "dark");
         var tc = document.querySelector('meta[name="theme-color"]');
-        if (tc) tc.setAttribute("content", "#111111");
+        if (tc) tc.setAttribute("content", "#1F1E1B");
       }
     } catch (e) {}
   </script>
@@ -64,11 +64,10 @@
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader__inner">
       <svg class="preloader__fish" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
-        <path class="pf-draw" d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="#F5F5F5" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-        <line class="pf-draw" x1="-170" y1="-50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="9" stroke-linecap="round"/>
-        <line class="pf-draw" x1="-170" y1="50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="9" stroke-linecap="round"/>
-        <circle class="pf-eye" cx="118" cy="-14" r="13" fill="#F5F5F5"/>
-        <circle cx="118" cy="-14" r="5.5" fill="#111111"/>
+        <path class="pf-draw" d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="#F5F0E8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="pf-draw" d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="#F5F0E8" stroke-width="9" stroke-linecap="round"/>
+        <path class="pf-draw" d="M -138 2 C -152 18, -156 34, -164 48" stroke="#F5F0E8" stroke-width="9" stroke-linecap="round"/>
+        <circle class="pf-eye" cx="112" cy="-14" r="12" fill="#C15F3C"/>
       </svg>
       <div class="preloader__word">Instituto Piratininga</div>
       <div class="preloader__bar"><span id="preloaderBar"></span></div>
@@ -81,12 +80,11 @@
   <!-- ░░ NAV ░░ -->
   <header class="nav nav--light" id="nav">
     <a class="nav__brand" href="#topo" aria-label="Instituto Piratininga — início">
-      <svg class="nav__fish" viewBox="-180 -90 360 180" fill="none" aria-hidden="true">
-        <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="currentColor" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="-170" y1="-50" x2="-137" y2="0" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-        <line x1="-170" y1="50" x2="-137" y2="0" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-        <circle cx="118" cy="-14" r="14" fill="currentColor"/>
-        <circle cx="118" cy="-14" r="6" class="nav__pupil"/>
+      <svg class="nav__fish" viewBox="-190 -100 380 200" fill="none" aria-hidden="true">
+        <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+        <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="112" cy="-14" r="13" fill="#C15F3C"/>
       </svg>
       <span class="nav__word">Piratininga</span>
     </a>
@@ -131,20 +129,19 @@
     <section class="hero" id="topo" data-theme="light">
       <div class="hero__bg" aria-hidden="true">
         <svg class="hero__watermark" data-parallax data-parallax-speed="-0.18" viewBox="-220 -130 440 260" fill="none">
-          <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="var(--fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="-170" y1="-50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="2"/>
-          <line x1="-170" y1="50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="2"/>
-          <circle cx="118" cy="-14" r="14" fill="none" stroke="var(--fg)" stroke-width="2"/>
+          <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="var(--fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="112" cy="-14" r="12" fill="none" stroke="var(--fg)" stroke-width="2"/>
         </svg>
       </div>
 
       <div class="hero__inner">
         <svg class="hero__fish" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
-          <path class="draw" d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="var(--fg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-          <line class="draw" x1="-170" y1="-50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>
-          <line class="draw" x1="-170" y1="50" x2="-137" y2="0" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>
-          <circle class="fish-eye" cx="118" cy="-14" r="15" fill="var(--fg)"/>
-          <circle cx="118" cy="-14" r="6.5" fill="var(--bg)"/>
+          <path class="draw" d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="var(--fg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="draw" d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>
+          <path class="draw" d="M -138 2 C -152 18, -156 34, -164 48" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>
+          <circle class="fish-eye" cx="112" cy="-14" r="13" fill="#C15F3C"/>
         </svg>
         <p class="eyebrow" data-reveal>Instituto Piratininga — Manifesto</p>
         <h1 class="hero__title">
@@ -218,16 +215,16 @@
     <!-- ░░ PAUSA — GRANDE AFIRMAÇÃO (DARK) ░░ -->
     <section class="manifesto" id="pausa" data-theme="dark">
       <svg class="manifesto__spine" data-parallax data-parallax-speed="0.12" viewBox="-90 -45 180 90" fill="none" aria-hidden="true">
-        <path d="M 50,-15 C 70,-10 70,10 50,15" stroke="#F5F5F5" stroke-width="1.4"/>
-        <line x1="50" y1="0" x2="-46" y2="0" stroke="#F5F5F5" stroke-width="1.4"/>
-        <line x1="34" y1="0" x2="34" y2="-9" stroke="#F5F5F5" stroke-width="1"/><line x1="34" y1="0" x2="34" y2="9" stroke="#F5F5F5" stroke-width="1"/>
-        <line x1="20" y1="0" x2="20" y2="-21" stroke="#F5F5F5" stroke-width="1"/><line x1="20" y1="0" x2="20" y2="21" stroke="#F5F5F5" stroke-width="1"/>
-        <line x1="4" y1="0" x2="4" y2="-28" stroke="#F5F5F5" stroke-width="1"/><line x1="4" y1="0" x2="4" y2="28" stroke="#F5F5F5" stroke-width="1"/>
-        <line x1="-12" y1="0" x2="-12" y2="-28" stroke="#F5F5F5" stroke-width="1"/><line x1="-12" y1="0" x2="-12" y2="28" stroke="#F5F5F5" stroke-width="1"/>
-        <line x1="-27" y1="0" x2="-27" y2="-19" stroke="#F5F5F5" stroke-width="1"/><line x1="-27" y1="0" x2="-27" y2="19" stroke="#F5F5F5" stroke-width="1"/>
-        <line x1="-46" y1="0" x2="-66" y2="-22" stroke="#F5F5F5" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="-46" y1="0" x2="-66" y2="22" stroke="#F5F5F5" stroke-width="1.4" stroke-linecap="round"/>
-        <circle cx="62" cy="-5" r="2.5" fill="#F5F5F5"/>
+        <path d="M 50,-15 C 70,-10 70,10 50,15" stroke="#F5F0E8" stroke-width="1.4"/>
+        <line x1="50" y1="0" x2="-46" y2="0" stroke="#F5F0E8" stroke-width="1.4"/>
+        <line x1="34" y1="0" x2="34" y2="-9" stroke="#F5F0E8" stroke-width="1"/><line x1="34" y1="0" x2="34" y2="9" stroke="#F5F0E8" stroke-width="1"/>
+        <line x1="20" y1="0" x2="20" y2="-21" stroke="#F5F0E8" stroke-width="1"/><line x1="20" y1="0" x2="20" y2="21" stroke="#F5F0E8" stroke-width="1"/>
+        <line x1="4" y1="0" x2="4" y2="-28" stroke="#F5F0E8" stroke-width="1"/><line x1="4" y1="0" x2="4" y2="28" stroke="#F5F0E8" stroke-width="1"/>
+        <line x1="-12" y1="0" x2="-12" y2="-28" stroke="#F5F0E8" stroke-width="1"/><line x1="-12" y1="0" x2="-12" y2="28" stroke="#F5F0E8" stroke-width="1"/>
+        <line x1="-27" y1="0" x2="-27" y2="-19" stroke="#F5F0E8" stroke-width="1"/><line x1="-27" y1="0" x2="-27" y2="19" stroke="#F5F0E8" stroke-width="1"/>
+        <line x1="-46" y1="0" x2="-66" y2="-22" stroke="#F5F0E8" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="-46" y1="0" x2="-66" y2="22" stroke="#F5F0E8" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="62" cy="-5" r="2.5" fill="#C15F3C"/>
       </svg>
 
       <div class="manifesto__inner">
@@ -300,10 +297,10 @@
     <!-- ░░ CONVITE / CTA (DARK) ░░ -->
     <section class="invite" id="convite" data-theme="dark">
       <svg class="invite__watermark" data-parallax data-parallax-speed="-0.1" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
-        <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="#F5F5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="-170" y1="-50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="1.5"/>
-        <line x1="-170" y1="50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="1.5"/>
-        <circle cx="118" cy="-14" r="14" fill="none" stroke="#F5F5F5" stroke-width="1.5"/>
+        <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="#F5F0E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="#F5F0E8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="#F5F0E8" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="112" cy="-14" r="12" fill="none" stroke="#F5F0E8" stroke-width="1.5"/>
       </svg>
 
       <div class="invite__inner">
@@ -311,7 +308,7 @@
         <h2 class="invite__title">
           <span class="line" data-split><span>Vem construir</span></span>
           <span class="line" data-split><span>esse mundo</span></span>
-          <span class="line" data-split><span class="red">com a gente.</span></span>
+          <span class="line" data-split><span class="accent">com a gente.</span></span>
         </h2>
         <p class="invite__tag" data-reveal>Não é utopia. É bússola.</p>
       </div>
@@ -323,12 +320,11 @@
   <footer class="footer" data-theme="dark">
     <div class="footer__top">
       <div class="footer__brand">
-        <svg class="footer__fish" viewBox="-180 -90 360 180" fill="none" aria-hidden="true">
-          <path d="M -140 0 C -108 -74, 108 -78, 148 0 C 108 78, -108 74, -140 0 Z" stroke="#F5F5F5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="-170" y1="-50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="11" stroke-linecap="round"/>
-          <line x1="-170" y1="50" x2="-137" y2="0" stroke="#F5F5F5" stroke-width="11" stroke-linecap="round"/>
-          <circle cx="118" cy="-14" r="14" fill="#F5F5F5"/>
-          <circle cx="118" cy="-14" r="6" fill="#111111"/>
+        <svg class="footer__fish" viewBox="-190 -100 380 200" fill="none" aria-hidden="true">
+          <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="#F5F0E8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="#F5F0E8" stroke-width="11" stroke-linecap="round"/>
+          <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="#F5F0E8" stroke-width="11" stroke-linecap="round"/>
+          <circle cx="112" cy="-14" r="13" fill="#C15F3C"/>
         </svg>
         <div class="footer__lockup">
           <span class="footer__label">Instituto</span>

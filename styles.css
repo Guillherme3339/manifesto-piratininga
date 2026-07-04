@@ -1,19 +1,23 @@
 /* ============================================================
    INSTITUTO PIRATININGA — Tecnologia que fica.
    Base editorial (Ford) + drama em scroll (Lusion).
-   Paleta e tipografia conforme branding-book.
+   Paleta e tipografia conforme branding-book v2 — Papel & Terracota.
    ============================================================ */
 
 /* ---------- TOKENS ---------- */
 :root {
-  --black:        #111111;  /* Preto Piratininga */
-  --white:        #F5F5F5;  /* Branco Névoa      */
-  --red:          #C8102E;  /* Vermelho MASP — acento, nunca decorativo */
-  --concrete:     #5C5C5C;  /* Cinza Concreto    */
-  --rain:         #ABABAB;  /* Cinza Chuva       */
-  --veil:         #E0E0E0;  /* Cinza Véu         */
+  --carvao:      #1F1E1B;  /* Carvão Quente — texto, fundos escuros */
+  --marfim:      #FAF7F2;  /* Marfim — fundo principal */
+  --papel:       #F5F0E8;  /* Papel — blocos, texto sobre carvão */
+  --terracota:   #C15F3C;  /* Terracota — acento, nunca decorativo */
+  --queimada:    #8F4228;  /* Terracota Queimada — hover, subtítulos */
+  --kraft:       #D4A27F;  /* Kraft — detalhes sobre fundo escuro */
+  --barro:       #6B675F;  /* Cinza Barro — texto secundário */
+  --barro-claro: #A8A296;  /* Barro claro — labels, metadados */
+  --areia:       #E8E1D3;  /* Areia — divisores, bordas */
 
   --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
 
   /* Escala fluida — ancorada na escala da marca */
   --fs-display: clamp(2.85rem, 1.1rem + 7.6vw, 7rem);    /* DISPLAY  60+/300 */
@@ -24,11 +28,11 @@
   --fs-caption: 0.8125rem;                               /* LEGENDA  12-13/300 */
   --fs-label:   0.625rem;                                /* LABEL    10/300 +ls3 */
 
-  --bg: var(--white);
-  --fg: var(--black);
-  --muted: var(--concrete);
-  --line: var(--veil);
-  --faint: var(--rain);
+  --bg: var(--marfim);
+  --fg: var(--carvao);
+  --muted: var(--barro);
+  --line: var(--areia);
+  --faint: var(--barro-claro);
 
   --gutter: clamp(1.25rem, 5vw, 6rem);
   --section-y: clamp(5rem, 9vw, 11rem);
@@ -42,18 +46,18 @@
 
 /* ---------- THEME PER SECTION ---------- */
 [data-theme="light"] {
-  --bg: var(--white);  --fg: var(--black);
-  --muted: var(--concrete); --line: var(--veil); --faint: var(--rain);
+  --bg: var(--marfim);  --fg: var(--carvao);
+  --muted: var(--barro); --line: var(--areia); --faint: var(--barro-claro);
 }
 [data-theme="dark"] {
-  --bg: var(--black);  --fg: var(--white);
-  --muted: var(--rain); --line: rgba(245,245,245,0.16); --faint: var(--concrete);
+  --bg: var(--carvao);  --fg: var(--papel);
+  --muted: var(--barro-claro); --line: rgba(245,240,232,0.16); --faint: var(--barro-claro);
 }
 
 /* Modo escuro global — sobrepõe o tema de cada seção quando ativado pelo usuário */
 html[data-mode="dark"] [data-theme] {
-  --bg: var(--black);  --fg: var(--white);
-  --muted: var(--rain); --line: rgba(245,245,245,0.16); --faint: var(--concrete);
+  --bg: var(--carvao);  --fg: var(--papel);
+  --muted: var(--barro-claro); --line: rgba(245,240,232,0.16); --faint: var(--barro-claro);
 }
 
 /* ---------- RESET ---------- */
@@ -68,8 +72,9 @@ body {
   font-size: var(--fs-body);
   font-weight: 400;
   line-height: 1.6;
-  color: var(--black);
-  background: var(--white);
+  color: var(--carvao);
+  background: var(--marfim);
+  /* fundo branco puro não existe na marca — todo claro é marfim/papel */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -79,13 +84,13 @@ img, svg { display: block; max-width: 100%; }
 svg { height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
-h1, h2, h3 { font-weight: 600; line-height: 1.05; letter-spacing: -0.02em; }
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; }
 strong { font-weight: 600; }
 em { font-style: italic; }
-::selection { background: var(--red); color: #fff; }
+::selection { background: var(--terracota); color: var(--marfim); }
 
 :focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--terracota);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -99,7 +104,7 @@ html.lenis, html.lenis body { height: auto; }
 /* ---------- SHARED TYPE ---------- */
 .label {
   font-size: var(--fs-label);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--faint);
@@ -112,12 +117,13 @@ html.lenis, html.lenis body { height: auto; }
   color: var(--muted);
 }
 .section-title {
+  font-family: var(--font-serif);
   font-size: var(--fs-title);
-  font-weight: 600;
+  font-weight: 400;
   color: var(--fg);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 }
-.red { color: var(--red); }
+.accent { color: var(--terracota); }
 
 /* line-mask helper (split text) */
 .line { display: block; overflow: hidden; padding-bottom: 0.04em; }
@@ -129,8 +135,8 @@ html.lenis, html.lenis body { height: auto; }
   top: 0; left: 50%;
   transform: translate(-50%, -120%);
   z-index: 10000;
-  background: var(--black);
-  color: var(--white);
+  background: var(--carvao);
+  color: var(--marfim);
   padding: 0.7rem 1.3rem;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
@@ -148,7 +154,7 @@ html.lenis, html.lenis body { height: auto; }
   z-index: 9000;
   display: grid;
   place-items: center;
-  background: var(--black);
+  background: var(--carvao);
   animation: pf-failsafe 0.7s ease 5s forwards; /* nunca trava o conteúdo */
 }
 @keyframes pf-failsafe { to { opacity: 0; visibility: hidden; } }
@@ -170,20 +176,20 @@ html.lenis, html.lenis body { height: auto; }
   font-size: var(--fs-label);
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--rain);
+  color: var(--barro-claro);
   font-weight: 300;
 }
 .preloader__bar {
   width: 100%;
   height: 1px;
-  background: rgba(245,245,245,0.14);
+  background: rgba(245,240,232,0.14);
   overflow: hidden;
 }
 .preloader__bar > span {
   display: block;
   height: 100%;
   width: 0;
-  background: var(--white);
+  background: var(--marfim);
   transform-origin: left;
 }
 
@@ -195,7 +201,7 @@ html.lenis, html.lenis body { height: auto; }
   top: 0; left: 0;
   width: 11px; height: 11px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--marfim);
   mix-blend-mode: difference;
   pointer-events: none;
   z-index: 9999;
@@ -212,14 +218,14 @@ html.lenis, html.lenis body { height: auto; }
 .cursor.is-label {
   width: 94px; height: 94px;
   background: transparent;
-  border: 1px solid var(--white);
+  border: 1px solid var(--marfim);
 }
 .cursor__label {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--marfim);
   opacity: 0;
   transition: opacity 0.22s var(--ease);
   text-align: center;
@@ -247,7 +253,7 @@ html.lenis, html.lenis body { height: auto; }
 .progress > span {
   display: block;
   height: 100%;
-  background: var(--red);
+  background: var(--terracota);
   transform: scaleX(0);
   transform-origin: left;
   will-change: transform;
@@ -266,17 +272,17 @@ html.lenis, html.lenis body { height: auto; }
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--gutter);
-  color: var(--black);
+  color: var(--carvao);
   transition: color 0.4s var(--ease), background 0.4s var(--ease);
 }
-.nav--dark { color: var(--white); }
+.nav--dark { color: var(--marfim); }
 .nav.is-scrolled {
-  background: color-mix(in srgb, var(--white) 80%, transparent);
+  background: color-mix(in srgb, var(--marfim) 80%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
 }
 .nav--dark.is-scrolled {
-  background: color-mix(in srgb, var(--black) 72%, transparent);
+  background: color-mix(in srgb, var(--carvao) 72%, transparent);
 }
 .nav__brand {
   display: inline-flex;
@@ -285,11 +291,10 @@ html.lenis, html.lenis body { height: auto; }
   color: inherit;
 }
 .nav__fish { width: 46px; }
-.nav__pupil { fill: var(--white); transition: fill 0.4s var(--ease); }
-.nav--dark .nav__pupil { fill: var(--black); }
 .nav__word {
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
   letter-spacing: 0.01em;
 }
 .nav__right {
@@ -331,7 +336,7 @@ html.lenis, html.lenis body { height: auto; }
   transition: background 0.35s var(--ease), color 0.35s var(--ease);
   white-space: nowrap;
 }
-.nav__cta:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.nav__cta:hover { background: var(--terracota); border-color: var(--terracota); color: var(--marfim); }
 
 .theme-toggle {
   flex: none;
@@ -346,7 +351,7 @@ html.lenis, html.lenis body { height: auto; }
   cursor: pointer;
   transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
 }
-.theme-toggle:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.theme-toggle:hover { background: var(--terracota); border-color: var(--terracota); color: var(--marfim); }
 .theme-toggle svg { width: 17px; height: 17px; }
 .theme-toggle .icon-sun { display: none; }
 .theme-toggle.is-dark .icon-moon { display: none; }
@@ -376,8 +381,8 @@ html.lenis, html.lenis body { height: auto; }
   position: fixed;
   inset: 0;
   z-index: 900;
-  background: var(--black);
-  color: var(--white);
+  background: var(--carvao);
+  color: var(--marfim);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -391,9 +396,10 @@ html.lenis, html.lenis body { height: auto; }
 .menu.is-open { opacity: 1; visibility: visible; transform: none; }
 .menu__links { display: flex; flex-direction: column; gap: clamp(1rem, 4vw, 2rem); }
 .menu__links a {
+  font-family: var(--font-serif);
   font-size: clamp(2rem, 11vw, 3.4rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1;
   display: flex;
   align-items: baseline;
@@ -402,19 +408,19 @@ html.lenis, html.lenis body { height: auto; }
 }
 .menu__links--long { gap: clamp(0.55rem, 2.2vw, 1.1rem); }
 .menu__links--long a { font-size: clamp(1.3rem, 5.6vw, 2.1rem); }
-.menu__links a:hover { color: var(--red); }
+.menu__links a:hover { color: var(--terracota); }
 .menu__idx {
   font-size: 0.8rem;
   font-weight: 300;
   letter-spacing: 0.2em;
-  color: var(--rain);
+  color: var(--barro-claro);
 }
 .menu__foot {
   margin-top: 3rem;
   font-size: var(--fs-label);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--rain);
+  color: var(--barro-claro);
 }
 
 /* ============================================================
@@ -480,7 +486,7 @@ section, .marquee, .footer {
   color: var(--faint);
   text-transform: uppercase;
 }
-.hero__meta .dot { color: var(--veil); }
+.hero__meta .dot { color: var(--areia); }
 .hero__scroll {
   position: absolute;
   bottom: 2.2rem;
@@ -532,9 +538,10 @@ section, .marquee, .footer {
   animation: marquee 38s linear infinite;
 }
 .marquee__track > span {
+  font-family: var(--font-serif);
   font-size: clamp(1.4rem, 3.4vw, 2.6rem);
   font-weight: 300;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   color: var(--fg);
 }
 .marquee__track .sep { color: var(--faint); font-size: 1rem; }
@@ -567,20 +574,21 @@ section, .marquee, .footer {
 }
 .chapter__title {
   font-size: var(--fs-title);
-  font-weight: 600;
+  font-weight: 400;
   color: var(--fg);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .chapter__body { display: grid; gap: 1.3rem; max-width: 64ch; }
 .chapter__text {
+  font-family: var(--font-serif);
   font-size: var(--fs-sub);
   font-weight: 300;
   line-height: 1.5;
   color: var(--fg);
   letter-spacing: -0.005em;
 }
-.chapter__text:not(.chapter__text--lead) { color: var(--muted); font-size: var(--fs-section); font-weight: 400; line-height: 1.6; }
-.chapter__text--accent { color: var(--red); font-weight: 500; font-style: italic; }
+.chapter__text:not(.chapter__text--lead) { font-family: var(--font); color: var(--muted); font-size: var(--fs-section); font-weight: 400; line-height: 1.6; }
+.chapter__text--accent { color: var(--terracota); font-weight: 500; font-style: italic; }
 
 @media (min-width: 960px) {
   .chapter__inner {
@@ -635,7 +643,7 @@ section, .marquee, .footer {
   font-weight: 400;
   margin-top: 0.6rem;
 }
-.manifesto__accent em { color: var(--red); font-style: italic; font-weight: 600; }
+.manifesto__accent em { color: var(--terracota); font-style: italic; font-weight: 600; }
 
 /* ============================================================
    CONVITE / CTA (dark)
@@ -699,7 +707,7 @@ section, .marquee, .footer {
   text-transform: uppercase;
   color: var(--faint);
 }
-.footer__word { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.02em; }
+.footer__word { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 400; letter-spacing: -0.01em; }
 .footer__mission { color: var(--muted); max-width: 38ch; font-size: 0.95rem; line-height: 1.55; }
 .footer__cols {
   display: grid;
