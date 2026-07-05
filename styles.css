@@ -460,7 +460,6 @@ section, .marquee, .footer {
   color: var(--kraft);
   text-transform: uppercase;
 }
-.hero__meta .dot { color: var(--terracota); }
 .hero__scroll {
   position: absolute;
   bottom: 2.2rem;
@@ -743,8 +742,6 @@ html.anims .preloader__fish .pf-eye { opacity: 0; }
 }
 
 @media (max-width: 520px) {
-  .hero__meta { flex-direction: column; gap: 0.45rem; }
-  .hero__meta .dot { display: none; }
   .footer__cols { grid-template-columns: 1fr 1fr; }
   .footer__bottom { flex-direction: column; }
 }
