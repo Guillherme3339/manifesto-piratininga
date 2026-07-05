@@ -95,61 +95,6 @@
   window.addEventListener("resize", updateScrolled, { passive: true });
   updateScrolled();
 
-  /* Nav theme swap via IntersectionObserver (sem depender de GSAP) */
-  var currentSectionTheme = "light";
-  function applyNavTheme() {
-    if (!nav) return;
-    var isDark = html.getAttribute("data-mode") === "dark" || currentSectionTheme === "dark";
-    nav.classList.toggle("nav--dark", isDark);
-    nav.classList.toggle("nav--light", !isDark);
-  }
-  (function setupNavTheme() {
-    if (!nav || !("IntersectionObserver" in window)) return;
-    var sections = document.querySelectorAll("[data-theme]");
-    function build() {
-      var nh = navHeight();
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          currentSectionTheme = en.target.getAttribute("data-theme");
-          applyNavTheme();
-        });
-      }, { rootMargin: "-" + nh + "px 0px -" + Math.max(0, window.innerHeight - nh - 4) + "px 0px", threshold: 0 });
-      sections.forEach(function (s) { io.observe(s); });
-    }
-    build();
-  })();
-
-  /* Alternância de modo escuro global (sobrepõe o tema por seção).
-     Sem escolha salva, segue o esquema de cores do sistema. */
-  (function setupThemeToggle() {
-    var STORAGE_KEY = "piratininga-mode";
-    var btn = document.getElementById("themeToggle");
-    if (!btn) return;
-    var themeColorMeta = document.querySelector('meta[name="theme-color"]');
-
-    function apply(isDark) {
-      if (isDark) html.setAttribute("data-mode", "dark");
-      else html.removeAttribute("data-mode");
-      btn.classList.toggle("is-dark", isDark);
-      btn.setAttribute("aria-pressed", isDark ? "true" : "false");
-      btn.setAttribute("aria-label", isDark ? "Ativar modo claro" : "Ativar modo escuro");
-      if (themeColorMeta) themeColorMeta.setAttribute("content", isDark ? "#1F1E1B" : "#FAF7F2");
-      applyNavTheme();
-    }
-
-    var saved = null;
-    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    apply(saved ? saved === "dark" : systemDark);
-
-    btn.addEventListener("click", function () {
-      var next = html.getAttribute("data-mode") !== "dark";
-      apply(next);
-      try { localStorage.setItem(STORAGE_KEY, next ? "dark" : "light"); } catch (e) {}
-    });
-  })();
-
   /* Smooth-scroll anchor links */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
@@ -185,10 +130,10 @@
   /* Lenis smooth scroll */
   if (hasLenis) {
     lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.4,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true,
-      wheelMultiplier: 1
+      wheelMultiplier: 0.9
     });
     lenis.on("scroll", ScrollTrigger.update);
     lenis.on("scroll", updateScrolled);
@@ -214,8 +159,8 @@
   /* Scroll reveals */
   scrollReveals.forEach(function (el) {
     gsap.to(el, {
-      opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
-      scrollTrigger: { trigger: el, start: "top 86%", once: true }
+      opacity: 1, y: 0, duration: 1.15, ease: "power3.out",
+      scrollTrigger: { trigger: el, start: "top 88%", once: true }
     });
   });
 
@@ -233,8 +178,8 @@
     var span = line.querySelector("span");
     if (!span) return;
     gsap.to(span, {
-      yPercent: 0, duration: 1.05, ease: "power3.out",
-      scrollTrigger: { trigger: line, start: "top 90%", once: true }
+      yPercent: 0, duration: 1.25, ease: "power3.out",
+      scrollTrigger: { trigger: line, start: "top 92%", once: true }
     });
   });
 
@@ -314,10 +259,10 @@
     var draws = gsap.utils.toArray(".hero__fish .draw");
     setupDraw(draws);
     var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.to(draws, { strokeDashoffset: 0, duration: 1.5, stagger: 0.18, ease: "power2.inOut" }, 0)
-      .to(".hero__fish .fish-eye", { opacity: 1, duration: 0.4 }, 1.1)
-      .to(heroSplitSpans, { yPercent: 0, duration: 1.1, stagger: 0.12 }, 0.5)
-      .to(heroReveals, { opacity: 1, y: 0, duration: 1, stagger: 0.1 }, 0.85);
+    tl.to(draws, { strokeDashoffset: 0, duration: 1.6, stagger: 0.16, ease: "power2.inOut" }, 0)
+      .to(".hero__fish .fish-eye", { opacity: 1, duration: 0.5 }, 1.15)
+      .to(heroSplitSpans, { yPercent: 0, duration: 1.25, stagger: 0.14 }, 0.45)
+      .to(heroReveals, { opacity: 1, y: 0, duration: 1.15, stagger: 0.12 }, 0.8);
     ScrollTrigger.refresh();
   }
 

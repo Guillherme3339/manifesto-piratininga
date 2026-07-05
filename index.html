@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Instituto Piratininga — Manifesto</title>
   <meta name="description" content="Construir o mundo melhor. O manifesto do Instituto Piratininga: a recusa do fatalismo, a crença no potencial humano e o método de uma tecnologia social que fica." />
-  <meta name="theme-color" content="#FAF7F2" />
+  <meta name="theme-color" content="#1F1E1B" />
   <link rel="canonical" href="https://guillherme3339.github.io/manifesto-piratininga/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -41,18 +41,7 @@
 
   <!-- Progressive enhancement flag: only hide reveal elements if JS is present.
        main.js removes this class if animation can't run, so content never stays hidden. -->
-  <script>
-    document.documentElement.classList.add("anims");
-    try {
-      var saved = localStorage.getItem("piratininga-mode");
-      var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-      if (dark) {
-        document.documentElement.setAttribute("data-mode", "dark");
-        var tc = document.querySelector('meta[name="theme-color"]');
-        if (tc) tc.setAttribute("content", "#1F1E1B");
-      }
-    } catch (e) {}
-  </script>
+  <script>document.documentElement.classList.add("anims");</script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -78,7 +67,7 @@
   <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
 
   <!-- ░░ NAV ░░ -->
-  <header class="nav nav--light" id="nav">
+  <header class="nav" id="nav">
     <a class="nav__brand" href="#topo" aria-label="Instituto Piratininga — início">
       <svg class="nav__fish" viewBox="-190 -100 380 200" fill="none" aria-hidden="true">
         <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -96,11 +85,6 @@
         <a href="#sonho"><span>O sonho</span></a>
         <a href="#convite" class="nav__cta magnetic">Vem construir</a>
       </nav>
-
-      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Ativar modo escuro">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.4M12 19.1v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
 
       <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
         <span></span><span></span>
@@ -129,10 +113,10 @@
     <section class="hero" id="topo" data-theme="light">
       <div class="hero__bg" aria-hidden="true">
         <svg class="hero__watermark" data-parallax data-parallax-speed="-0.18" viewBox="-220 -130 440 260" fill="none">
-          <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="var(--fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
-          <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="var(--fg)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="112" cy="-14" r="12" fill="none" stroke="var(--fg)" stroke-width="2"/>
+          <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="#C15F3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="#C15F3C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="#C15F3C" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="112" cy="-14" r="12" fill="none" stroke="#C15F3C" stroke-width="2"/>
         </svg>
       </div>
 
@@ -146,7 +130,7 @@
         <p class="eyebrow" data-reveal>Instituto Piratininga — Manifesto</p>
         <h1 class="hero__title">
           <span class="line" data-split><span>Construir</span></span>
-          <span class="line" data-split><span>o mundo melhor.</span></span>
+          <span class="line" data-split><span>o mundo <span class="accent">melhor.</span></span></span>
         </h1>
         <p class="hero__lead" data-reveal>A arquitetura de um futuro.</p>
         <div class="hero__meta" data-reveal>
@@ -178,7 +162,7 @@
           <h2 class="chapter__title" data-reveal>O nome</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>Piratininga: peixe seco, em tupi. O planalto onde São Paulo nasceu sabia transformar a abundância passageira das águas em sustento permanente. Esse gesto nos define.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal>Piratininga: <span class="accent">peixe seco, em tupi.</span> O planalto onde São Paulo nasceu sabia transformar a abundância passageira das águas em sustento permanente. Esse gesto nos define.</p>
           <p class="chapter__text" data-reveal>Piratininga é uma declaração de intenção. O Instituto existe para desenvolver tecnologias sociais que fixem riqueza e talento no território: para que o conhecimento gerado nas comunidades permaneça nelas.</p>
         </div>
       </div>
@@ -192,7 +176,7 @@
           <h2 class="chapter__title" data-reveal>O tempo</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>Tivemos sorte de nascer agora. Vivemos em uma era em que o mundo pode ser salvo, e dizemos isso com alegria, não com arrogância.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal>Tivemos sorte de nascer agora. Vivemos em uma era em que <span class="accent">o mundo pode ser salvo</span>, e dizemos isso com alegria, não com arrogância.</p>
           <p class="chapter__text" data-reveal>No último século, a pobreza extrema, a fome e a mortalidade infantil foram drasticamente reduzidas. Vivemos também a maior revolução tecnológica da história. O encontro entre o que a humanidade aprendeu e o que a tecnologia agora permite abre uma janela única de transformação.</p>
         </div>
       </div>
@@ -206,7 +190,7 @@
           <h2 class="chapter__title" data-reveal>A recusa</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>Recusamos o fatalismo. A desigualdade não é destino. A miséria não é natureza. São escolhas, e escolhas podem ser refeitas.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal><span class="accent">Recusamos o fatalismo.</span> A desigualdade não é destino. A miséria não é natureza. São escolhas, e escolhas podem ser refeitas.</p>
           <p class="chapter__text" data-reveal>O pessimismo é uma postura intelectual e moral que rejeitamos: não por ingenuidade, mas por evidência. Os problemas que enfrentamos são reais e urgentes, mas nenhum deles é irresolúvel. O Piratininga existe na convicção de que o esforço organizado, bem direcionado e sustentado no tempo, constrói alternativas.</p>
         </div>
       </div>
@@ -215,15 +199,15 @@
     <!-- ░░ PAUSA — GRANDE AFIRMAÇÃO (DARK) ░░ -->
     <section class="manifesto" id="pausa" data-theme="dark">
       <svg class="manifesto__spine" data-parallax data-parallax-speed="0.12" viewBox="-90 -45 180 90" fill="none" aria-hidden="true">
-        <path d="M 50,-15 C 70,-10 70,10 50,15" stroke="#F5F0E8" stroke-width="1.4"/>
-        <line x1="50" y1="0" x2="-46" y2="0" stroke="#F5F0E8" stroke-width="1.4"/>
-        <line x1="34" y1="0" x2="34" y2="-9" stroke="#F5F0E8" stroke-width="1"/><line x1="34" y1="0" x2="34" y2="9" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="20" y1="0" x2="20" y2="-21" stroke="#F5F0E8" stroke-width="1"/><line x1="20" y1="0" x2="20" y2="21" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="4" y1="0" x2="4" y2="-28" stroke="#F5F0E8" stroke-width="1"/><line x1="4" y1="0" x2="4" y2="28" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="-12" y1="0" x2="-12" y2="-28" stroke="#F5F0E8" stroke-width="1"/><line x1="-12" y1="0" x2="-12" y2="28" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="-27" y1="0" x2="-27" y2="-19" stroke="#F5F0E8" stroke-width="1"/><line x1="-27" y1="0" x2="-27" y2="19" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="-46" y1="0" x2="-66" y2="-22" stroke="#F5F0E8" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="-46" y1="0" x2="-66" y2="22" stroke="#F5F0E8" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M 50,-15 C 70,-10 70,10 50,15" stroke="#D4A27F" stroke-width="1.4"/>
+        <line x1="50" y1="0" x2="-46" y2="0" stroke="#D4A27F" stroke-width="1.4"/>
+        <line x1="34" y1="0" x2="34" y2="-9" stroke="#D4A27F" stroke-width="1"/><line x1="34" y1="0" x2="34" y2="9" stroke="#D4A27F" stroke-width="1"/>
+        <line x1="20" y1="0" x2="20" y2="-21" stroke="#D4A27F" stroke-width="1"/><line x1="20" y1="0" x2="20" y2="21" stroke="#D4A27F" stroke-width="1"/>
+        <line x1="4" y1="0" x2="4" y2="-28" stroke="#D4A27F" stroke-width="1"/><line x1="4" y1="0" x2="4" y2="28" stroke="#D4A27F" stroke-width="1"/>
+        <line x1="-12" y1="0" x2="-12" y2="-28" stroke="#D4A27F" stroke-width="1"/><line x1="-12" y1="0" x2="-12" y2="28" stroke="#D4A27F" stroke-width="1"/>
+        <line x1="-27" y1="0" x2="-27" y2="-19" stroke="#D4A27F" stroke-width="1"/><line x1="-27" y1="0" x2="-27" y2="19" stroke="#D4A27F" stroke-width="1"/>
+        <line x1="-46" y1="0" x2="-66" y2="-22" stroke="#D4A27F" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="-46" y1="0" x2="-66" y2="22" stroke="#D4A27F" stroke-width="1.4" stroke-linecap="round"/>
         <circle cx="62" cy="-5" r="2.5" fill="#C15F3C"/>
       </svg>
 
@@ -246,7 +230,7 @@
           <h2 class="chapter__title" data-reveal>A crença</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>Só existe a sociedade. Mercado e Estado são ferramentas que ela criou para fins específicos. Quando falham, não é o fim: é o sinal de que precisamos de ferramentas melhores. Acreditamos no indivíduo como unidade irredutível dessa sociedade, cada pessoa com seu potencial máximo desenvolvido.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal>Só existe a sociedade. Mercado e Estado são ferramentas que ela criou para fins específicos. Quando falham, não é o fim: é o sinal de que precisamos de ferramentas melhores. Acreditamos no indivíduo como unidade irredutível dessa sociedade, <span class="accent">cada pessoa com seu potencial máximo</span> desenvolvido.</p>
           <p class="chapter__text" data-reveal>Partimos do ser humano concreto, não de sistemas abstratos. O objetivo de qualquer tecnologia social é ampliar a capacidade individual de criar, pensar e contribuir. Uma sociedade melhor é feita de indivíduos mais plenos.</p>
         </div>
       </div>
@@ -260,7 +244,7 @@
           <h2 class="chapter__title" data-reveal>A ferramenta</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>A inteligência artificial não é apenas mais uma tecnologia. É a primeira que nos permite repensar os sistemas, não apenas otimizá-los.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal>A inteligência artificial não é apenas mais uma tecnologia. É a primeira que nos permite <span class="accent">repensar os sistemas</span>, não apenas otimizá-los.</p>
           <p class="chapter__text" data-reveal>A sociedade precisa abraçar esse momento: sem medo, com o cuidado de quem sabe que a ferramenta serve ao artesão.</p>
         </div>
       </div>
@@ -274,7 +258,7 @@
           <h2 class="chapter__title" data-reveal>O método</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>Tecnologia social é o que transcende o projeto. A diferença entre apagar um incêndio e construir um sistema de prevenção.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal>Tecnologia social é <span class="accent">o que transcende o projeto</span>. A diferença entre apagar um incêndio e construir um sistema de prevenção.</p>
           <p class="chapter__text" data-reveal>Soluções que persistem além de quem as criou, enraizadas no território, autossustentáveis, capazes de nutrir o futuro.</p>
         </div>
       </div>
@@ -288,7 +272,7 @@
           <h2 class="chapter__title" data-reveal>O sonho</h2>
         </div>
         <div class="chapter__body">
-          <p class="chapter__text chapter__text--lead" data-reveal>Queremos um mundo onde todo ser humano possa desenvolver seu potencial ao máximo. Um mundo onde todos sejam cientistas, pensadores, criadores. Recebemos mais do que os que vieram antes. Deixaremos mais do que recebemos, para as próximas gerações, por enquanto aqui neste planetinha. Um dia, além dele.</p>
+          <p class="chapter__text chapter__text--lead" data-reveal>Queremos um mundo onde <span class="accent">todo ser humano possa desenvolver seu potencial ao máximo</span>. Um mundo onde todos sejam cientistas, pensadores, criadores. Recebemos mais do que os que vieram antes. Deixaremos mais do que recebemos, para as próximas gerações, por enquanto aqui neste planetinha. Um dia, além dele.</p>
           <p class="chapter__text chapter__text--accent" data-reveal>Não é utopia: é bússola. Cada decisão deve ser avaliada pela mesma pergunta: isso aproxima ou afasta o mundo em que cada pessoa pode ser plenamente o que é?</p>
         </div>
       </div>
@@ -297,10 +281,10 @@
     <!-- ░░ CONVITE / CTA (DARK) ░░ -->
     <section class="invite" id="convite" data-theme="dark">
       <svg class="invite__watermark" data-parallax data-parallax-speed="-0.1" viewBox="-220 -130 440 260" fill="none" aria-hidden="true">
-        <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="#F5F0E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="#F5F0E8" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="#F5F0E8" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="112" cy="-14" r="12" fill="none" stroke="#F5F0E8" stroke-width="1.5"/>
+        <path d="M -142 2 C -106 -70, 102 -84, 150 -2 C 100 76, -110 68, -142 2 Z" stroke="#C15F3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M -138 -2 C -150 -18, -158 -36, -168 -52" stroke="#C15F3C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M -138 2 C -152 18, -156 34, -164 48" stroke="#C15F3C" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="112" cy="-14" r="12" fill="none" stroke="#C15F3C" stroke-width="1.5"/>
       </svg>
 
       <div class="invite__inner">

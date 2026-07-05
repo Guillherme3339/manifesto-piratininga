@@ -6,15 +6,16 @@
 
 /* ---------- TOKENS ---------- */
 :root {
-  --carvao:      #1F1E1B;  /* Carvão Quente — texto, fundos escuros */
-  --marfim:      #FAF7F2;  /* Marfim — fundo principal */
-  --papel:       #F5F0E8;  /* Papel — blocos, texto sobre carvão */
-  --terracota:   #C15F3C;  /* Terracota — acento, nunca decorativo */
-  --queimada:    #8F4228;  /* Terracota Queimada — hover, subtítulos */
-  --kraft:       #D4A27F;  /* Kraft — detalhes sobre fundo escuro */
-  --barro:       #6B675F;  /* Cinza Barro — texto secundário */
-  --barro-claro: #A8A296;  /* Barro claro — labels, metadados */
-  --areia:       #E8E1D3;  /* Areia — divisores, bordas */
+  --carvao:      #1F1E1B;  /* Carvão Quente — fundo base */
+  --carvao-2:    #181713;  /* Carvão Profundo — seções alternadas */
+  --marfim:      #FAF7F2;  /* Marfim — reservado a peças claras */
+  --papel:       #F5F0E8;  /* Papel — texto sobre carvão */
+  --terracota:   #C15F3C;  /* Terracota — a assinatura de cor */
+  --queimada:    #8F4228;  /* Terracota Queimada — hover, fundos de destaque */
+  --kraft:       #D4A27F;  /* Kraft — labels, metadados, calor */
+  --barro:       #6B675F;  /* Cinza Barro — apagados */
+  --barro-claro: #A8A296;  /* Barro claro — texto secundário */
+  --areia:       #E8E1D3;  /* Areia — divisores em peças claras */
 
   --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -28,11 +29,11 @@
   --fs-caption: 0.8125rem;                               /* LEGENDA  12-13/300 */
   --fs-label:   0.625rem;                                /* LABEL    10/300 +ls3 */
 
-  --bg: var(--marfim);
-  --fg: var(--carvao);
-  --muted: var(--barro);
-  --line: var(--areia);
-  --faint: var(--barro-claro);
+  --bg: var(--carvao);
+  --fg: var(--papel);
+  --muted: var(--barro-claro);
+  --line: rgba(245, 240, 232, 0.13);
+  --faint: var(--barro);
 
   --gutter: clamp(1.25rem, 5vw, 6rem);
   --section-y: clamp(5rem, 9vw, 11rem);
@@ -44,20 +45,12 @@
   --nav-h: 76px;
 }
 
-/* ---------- THEME PER SECTION ---------- */
+/* ---------- RITMO POR SEÇÃO — dois tons de carvão ---------- */
 [data-theme="light"] {
-  --bg: var(--marfim);  --fg: var(--carvao);
-  --muted: var(--barro); --line: var(--areia); --faint: var(--barro-claro);
+  --bg: var(--carvao);
 }
 [data-theme="dark"] {
-  --bg: var(--carvao);  --fg: var(--papel);
-  --muted: var(--barro-claro); --line: rgba(245,240,232,0.16); --faint: var(--barro-claro);
-}
-
-/* Modo escuro global — sobrepõe o tema de cada seção quando ativado pelo usuário */
-html[data-mode="dark"] [data-theme] {
-  --bg: var(--carvao);  --fg: var(--papel);
-  --muted: var(--barro-claro); --line: rgba(245,240,232,0.16); --faint: var(--barro-claro);
+  --bg: var(--carvao-2);
 }
 
 /* ---------- RESET ---------- */
@@ -72,9 +65,9 @@ body {
   font-size: var(--fs-body);
   font-weight: 400;
   line-height: 1.6;
-  color: var(--carvao);
-  background: var(--marfim);
-  /* fundo branco puro não existe na marca — todo claro é marfim/papel */
+  color: var(--papel);
+  background: var(--carvao);
+  /* carvão quente sempre — preto puro não existe na marca */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -107,14 +100,14 @@ html.lenis, html.lenis body { height: auto; }
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--kraft);
 }
 .eyebrow {
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--kraft);
 }
 .section-title {
   font-family: var(--font-serif);
@@ -125,8 +118,8 @@ html.lenis, html.lenis body { height: auto; }
 }
 .accent { color: var(--terracota); }
 
-/* line-mask helper (split text) */
-.line { display: block; overflow: hidden; padding-bottom: 0.04em; }
+/* line-mask helper (split text) — folga extra para os descendentes da Fraunces */
+.line { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.08em; }
 .line > span { display: block; }
 
 /* ---------- SKIP LINK ---------- */
@@ -135,8 +128,8 @@ html.lenis, html.lenis body { height: auto; }
   top: 0; left: 50%;
   transform: translate(-50%, -120%);
   z-index: 10000;
-  background: var(--carvao);
-  color: var(--marfim);
+  background: var(--papel);
+  color: var(--carvao);
   padding: 0.7rem 1.3rem;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
@@ -176,8 +169,8 @@ html.lenis, html.lenis body { height: auto; }
   font-size: var(--fs-label);
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--barro-claro);
-  font-weight: 300;
+  color: var(--kraft);
+  font-weight: 500;
 }
 .preloader__bar {
   width: 100%;
@@ -189,7 +182,7 @@ html.lenis, html.lenis body { height: auto; }
   display: block;
   height: 100%;
   width: 0;
-  background: var(--marfim);
+  background: var(--terracota);
   transform-origin: left;
 }
 
@@ -272,17 +265,13 @@ html.lenis, html.lenis body { height: auto; }
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--gutter);
-  color: var(--carvao);
+  color: var(--papel);
   transition: color 0.4s var(--ease), background 0.4s var(--ease);
 }
-.nav--dark { color: var(--marfim); }
 .nav.is-scrolled {
-  background: color-mix(in srgb, var(--marfim) 80%, transparent);
+  background: color-mix(in srgb, var(--carvao) 78%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
-}
-.nav--dark.is-scrolled {
-  background: color-mix(in srgb, var(--carvao) 72%, transparent);
 }
 .nav__brand {
   display: inline-flex;
@@ -319,12 +308,13 @@ html.lenis, html.lenis body { height: auto; }
   position: absolute;
   left: 0; bottom: -4px;
   width: 100%; height: 1px;
-  background: currentColor;
+  background: var(--terracota);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s var(--ease);
 }
 .nav__links > a:not(.nav__cta):hover > span::after { transform: scaleX(1); transform-origin: left; }
+.nav__links > a:not(.nav__cta):hover { color: var(--kraft); }
 
 .nav__cta {
   font-size: 0.8rem;
@@ -337,25 +327,6 @@ html.lenis, html.lenis body { height: auto; }
   white-space: nowrap;
 }
 .nav__cta:hover { background: var(--terracota); border-color: var(--terracota); color: var(--marfim); }
-
-.theme-toggle {
-  flex: none;
-  width: 40px; height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  color: inherit;
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
-}
-.theme-toggle:hover { background: var(--terracota); border-color: var(--terracota); color: var(--marfim); }
-.theme-toggle svg { width: 17px; height: 17px; }
-.theme-toggle .icon-sun { display: none; }
-.theme-toggle.is-dark .icon-moon { display: none; }
-.theme-toggle.is-dark .icon-sun { display: block; }
 
 .nav__toggle {
   display: none;
@@ -381,8 +352,8 @@ html.lenis, html.lenis body { height: auto; }
   position: fixed;
   inset: 0;
   z-index: 900;
-  background: var(--carvao);
-  color: var(--marfim);
+  background: var(--carvao-2);
+  color: var(--papel);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -411,16 +382,16 @@ html.lenis, html.lenis body { height: auto; }
 .menu__links a:hover { color: var(--terracota); }
 .menu__idx {
   font-size: 0.8rem;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.2em;
-  color: var(--barro-claro);
+  color: var(--terracota);
 }
 .menu__foot {
   margin-top: 3rem;
   font-size: var(--fs-label);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--barro-claro);
+  color: var(--kraft);
 }
 
 /* ============================================================
@@ -449,7 +420,7 @@ section, .marquee, .footer {
 .hero__bg { position: absolute; inset: 0; z-index: 0; display: grid; place-items: center; pointer-events: none; }
 .hero__watermark {
   width: min(150vw, 1500px);
-  opacity: 0.05;
+  opacity: 0.09;
 }
 .hero__fish {
   width: clamp(124px, 16vw, 188px);
@@ -483,10 +454,10 @@ section, .marquee, .footer {
   gap: 0.7rem;
   font-size: var(--fs-caption);
   letter-spacing: 0.04em;
-  color: var(--faint);
+  color: var(--kraft);
   text-transform: uppercase;
 }
-.hero__meta .dot { color: var(--areia); }
+.hero__meta .dot { color: var(--terracota); }
 .hero__scroll {
   position: absolute;
   bottom: 2.2rem;
@@ -511,8 +482,8 @@ section, .marquee, .footer {
   position: absolute;
   top: -50%; left: 0;
   width: 100%; height: 50%;
-  background: var(--fg);
-  animation: scrollPulse 1.9s var(--ease) infinite;
+  background: var(--terracota);
+  animation: scrollPulse 2.4s var(--ease) infinite;
 }
 @keyframes scrollPulse {
   0%   { transform: translateY(-100%); }
@@ -535,7 +506,7 @@ section, .marquee, .footer {
   align-items: center;
   gap: 2.4rem;
   will-change: transform;
-  animation: marquee 38s linear infinite;
+  animation: marquee 55s linear infinite;
 }
 .marquee__track > span {
   font-family: var(--font-serif);
@@ -544,7 +515,7 @@ section, .marquee, .footer {
   letter-spacing: -0.005em;
   color: var(--fg);
 }
-.marquee__track .sep { color: var(--faint); font-size: 1rem; }
+.marquee__track .sep { color: var(--terracota); font-size: 0.95rem; line-height: 1; }
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -566,10 +537,10 @@ section, .marquee, .footer {
 }
 .chapter__head { display: flex; align-items: baseline; gap: 1rem; }
 .chapter__num {
-  font-size: clamp(2.3rem, 6vw, 4rem);
-  font-weight: 300;
-  color: var(--faint);
-  letter-spacing: -0.02em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--terracota);
+  letter-spacing: 0.35em;
   line-height: 1;
 }
 .chapter__title {
@@ -596,7 +567,9 @@ section, .marquee, .footer {
     align-items: start;
     gap: clamp(2rem, 6vw, 5rem);
   }
-  .chapter__head { position: sticky; top: calc(var(--nav-h) + 10vh); flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .chapter__head { position: sticky; top: calc(var(--nav-h) + 10vh); flex-direction: column; align-items: flex-start; gap: 1rem; }
+  /* alinha o topo do lead com o topo do título (o índice terracota flutua acima) */
+  .chapter__body { margin-top: calc(0.85rem + 1rem - 0.35em); }
 }
 
 /* ============================================================
@@ -614,7 +587,7 @@ section, .marquee, .footer {
   top: 50%;
   transform: translateY(-50%);
   width: min(60vw, 720px);
-  opacity: 0.12;
+  opacity: 0.2;
   z-index: 0;
 }
 .manifesto__inner {
@@ -660,7 +633,7 @@ section, .marquee, .footer {
   left: 50%; top: 50%;
   transform: translate(-50%, -50%);
   width: min(130vw, 1200px);
-  opacity: 0.06;
+  opacity: 0.1;
   z-index: 0;
 }
 .invite__inner {
@@ -682,7 +655,7 @@ section, .marquee, .footer {
   font-size: var(--fs-label);
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--kraft);
 }
 
 /* ============================================================
@@ -705,7 +678,7 @@ section, .marquee, .footer {
   font-size: var(--fs-label);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--kraft);
 }
 .footer__word { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 400; letter-spacing: -0.01em; }
 .footer__mission { color: var(--muted); max-width: 38ch; font-size: 0.95rem; line-height: 1.55; }
@@ -719,7 +692,7 @@ section, .marquee, .footer {
 .footer__col .label { margin-bottom: 0.4rem; }
 .footer__col p { color: var(--muted); }
 .footer__col a { transition: color 0.3s var(--ease); word-break: break-word; }
-.footer__col a:hover { color: var(--fg); }
+.footer__col a:hover { color: var(--terracota); }
 .footer__bottom {
   max-width: var(--maxw);
   margin: 1.8rem auto 0;
@@ -776,8 +749,8 @@ html.anims .preloader__fish .pf-eye { opacity: 0; }
    ============================================================ */
 @media print {
   .nav, .menu, .cursor, .preloader, .progress,
-  .hero__scroll, .marquee, .theme-toggle { display: none !important; }
-  [data-theme], html[data-mode="dark"] [data-theme] {
+  .hero__scroll, .marquee { display: none !important; }
+  [data-theme] {
     --bg: #fff; --fg: #000;
     --muted: #333; --line: #ccc; --faint: #666;
   }
