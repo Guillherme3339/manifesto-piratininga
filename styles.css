@@ -450,8 +450,11 @@ section, .marquee, .footer {
 }
 .hero__meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.7rem;
+  justify-content: center;
+  text-align: center;
+  gap: 0.4rem 0.7rem;
   font-size: var(--fs-caption);
   letter-spacing: 0.04em;
   color: var(--kraft);
@@ -740,7 +743,8 @@ html.anims .preloader__fish .pf-eye { opacity: 0; }
 }
 
 @media (max-width: 520px) {
-  .hero__meta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .hero__meta { flex-direction: column; gap: 0.45rem; }
+  .hero__meta .dot { display: none; }
   .footer__cols { grid-template-columns: 1fr 1fr; }
   .footer__bottom { flex-direction: column; }
 }
