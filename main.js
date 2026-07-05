@@ -1,5 +1,5 @@
 /* ============================================================
-   INSTITUTO PIRATININGA — interações
+   FUNDO PIRATININGA — interações
    Lenis (smooth) + GSAP/ScrollTrigger.
    Progressive enhancement: se faltar lib ou houver
    prefers-reduced-motion, remove .anims e mostra tudo.
